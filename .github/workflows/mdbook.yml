@@ -22,6 +22,7 @@ jobs:
 
       - name: Build language definition
         run: |
+          npm install
           npm run build
 
       - name: Build mdBook
