@@ -1,0 +1,22 @@
+[book]
+title = "TwinCAT ST Syntax Highlighting with Highlight.js"
+description = "A guide on how to use Highlight.js to highlight TwinCAT ST code in your web pages."
+authors = ["Goodwill Mzumala"]
+language = "en"
+multilingual = false
+src = "book"                # the directory where the book's content is located
+
+[build]
+build-dir = "../../build/book"    # the directory where the output is placed
+create-missing = true       # whether or not to create missing pages
+
+[theme]
+name = "ayu"                # the name of the theme to use
+dark = true                 # whether or not to use the dark theme
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/fisothemes/highlightjs-twincat-st/"
+edit-url-template = "https://github.com/fisothemes/highlightjs-twincat-st/tree/master/{path}"
+cname = "https://github.com/fisothemes/highlightjs-twincat-st/"

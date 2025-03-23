@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IEC-ST Highlight.js Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/arduino-light.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+    <script src="iecst.min.js"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        line-height: 1.6;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        padding: 0.5em;
+        background: #f5f5f5;
+      }
+
+      h1,
+      h2 {
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>IEC-ST Highlight.js Demo</h1>
+    <p>
+      This is a demo of syntax highlighting for
+      <strong>IEC 61131-3 Structured Text</strong> using Highlight.js +
+      <code>iecst</code> grammar.
+    </p>
+
+    <h2>Function Block</h2>
+    <pre><code class="language-iecst">// Controls a motor.
+{attribute 'no_explicit_call' := 'do not call this POU directly'}
+FUNCTION_BLOCK FB_Motor EXTENDS FB_Equipment IMPLEMENTS I_Motor
+VAR
+    _fSpeed      : LREAL := 100.5; (* RPM *)
+    _bIsRunning  : BOOL;
+END_VAR
+METHOD Start : BOOL
+    Start := THIS^._bIsRunning := TRUE;
+END_METHOD
+END_FUNCTION_BLOCK</code></pre>
+
+    <h2>Program</h2>
+    <pre><code class="language-iecst">PROGRAM MAIN
+VAR
+    fbMotor : FB_Motor;
+    bStart  : BOOL := TRUE;
+END_VAR
+
+IF bStart THEN
+    fbMotor.Start();
+END_IF</code></pre>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

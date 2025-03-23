@@ -1,0 +1,35 @@
+{
+  "name": "highlightjs-iecst",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Highlight.js syntax definition for Structured Text (IEC 61131-3)",
+  "main": "src/iecst.js",
+  "scripts": {
+    "build": "node tools/build.js",
+    "test": "echo \"Error: WIP. Tests have not been implemented.\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fisothemes/highlightjs-iecst.git"
+  },
+  "keywords": [
+    "iec-st",
+    "structured-text",
+    "iec-61131",
+    "plc-programming",
+    "highlight.js",
+    "highlightjs",
+    "syntax"
+  ],
+  "author": "Goodwill Mzumala <fisothemes@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fisothemes/highlightjs-iecst/issues"
+  },
+  "homepage": "https://github.com/fisothemes/highlightjs-iecst",
+  "devDependencies": {
+    "highlight.js": "^10.7.2",
+    "rollup": "^4.0.2",
+    "terser": "^5.20.0"
+  }
+}
