@@ -174,12 +174,10 @@ INTERFACE I_Motor
     END_METHOD
 END_INTERFACE
 </code></pre>
-<pre><code class="language-js">var num = 20 + 4;
-</code></pre>
 <h3 id="defining-a-function-block"><a class="header" href="#defining-a-function-block">Defining a Function Block</a></h3>
 <pre><code class="language-iecst">// Function Block implementing IMotor Interface
 {attribute 'no_explicit_call' := 'do not call this POU directly'} 
-FUNCTION_BLOCK FB_MotorController EXTENDS FB_Object IMPLEMENTS IMotor
+FUNCTION_BLOCK FB_MotorController EXTENDS FB_Object IMPLEMENTS I_Motor
 VAR
     _bIsRunning     : BOOL;
     _fCurrentSpeed  : LREAL;
