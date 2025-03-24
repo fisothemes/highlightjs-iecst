@@ -244,10 +244,10 @@ export default function (hljs) {
     aliases: ['iecst', "iec-st", "iec61131"],
     case_insensitive: true,
     keywords: {
-      keyword: KEYWORDS.join(" "),
-      type: TYPES.join(" "),
-      literal: LITERALS.join(" "),
-      built_in: BUILT_IN.join(" "),
+      keyword: KEYWORDS,
+      type: TYPES,
+      literal: LITERALS,
+      built_in: BUILT_IN,
     },
     contains: COMMENT_MODES.concat([
       STRING,
