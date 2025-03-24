@@ -6,7 +6,7 @@ IEC 61131-3 Structured Text is a high-level programming language designed for in
 
 ## Example Page
 
-See an example implementation here: **[fisothemes/highlightjs-iecst](https://github.com/fisothemes/highlightjs-iecst)**
+See an example implementation here: **[fisothemes/highlightjs-iecst](https://fisothemes.github.io/highlightjs-iecst/)**
 
 ## Usage
 
