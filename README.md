@@ -29,9 +29,9 @@ See an example implementation here: **[fisothemes/highlightjs-iecst](https://fis
         ```iecst
         PROGRAM MAIN
         VAR
-          speed : LREAL := 0.0;
+          fSpeed : LREAL := 0.0;
         END_VAR
-        speed := 100.5;
+        fSpeed := 100.5;
         END_PROGRAM
         ```
     ```
@@ -55,9 +55,9 @@ Then use:
 <pre><code class="language-iecst">
 PROGRAM MAIN
 VAR
-  speed : LREAL := 0.0;
+  fSpeed : LREAL := 0.0;
 END_VAR
-speed := 100.5;
+fSpeed := 100.5;
 END_PROGRAM
 </code></pre>
 ```
