@@ -20,10 +20,6 @@ INTERFACE I_Motor
 END_INTERFACE
 ```
 
-```js
-var num = 20 + 4;
-```
-
 ### Defining a Function Block
 ```iecst
 // Function Block implementing IMotor Interface
