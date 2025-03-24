@@ -76,7 +76,7 @@ END_VAR
 END_FUNCTION
 ```
 
-### Definings a Program
+### Defining a Program
 ```iecst
 // Main Program
 PROGRAM MAIN
