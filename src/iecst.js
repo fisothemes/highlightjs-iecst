@@ -202,10 +202,13 @@ export default function (hljs) {
 
   ];
 
-  const COMMENT_MODES = [
+  const COMMENT = {
+    className: 'comment',
+    variants: [
     hljs.C_LINE_COMMENT_MODE,
-    hljs.COMMENT(/\(\*/, /\*\)/)
-  ];
+    { begin: '\\(\\*', end: '\\*\\)', contains: ['self'] },
+    ]
+  };
 
   const DIRECTIVE = {
     className: 'meta',
@@ -244,15 +247,16 @@ export default function (hljs) {
     aliases: ['iecst', "iec-st", "iec61131"],
     case_insensitive: true,
     keywords: {
-      keyword: KEYWORDS,
-      type: TYPES,
-      literal: LITERALS,
-      built_in: BUILT_IN,
+      keyword: KEYWORDS.join(" "),
+      type: TYPES.join(" "),
+      literal: LITERALS.join(" "),
+      built_in: BUILT_IN.join(" "),
     },
-    contains: COMMENT_MODES.concat([
+    contains: [
+      COMMENT,
       STRING,
       DIRECTIVE,
       hljs.NUMBER_MODE
-    ])
+    ]
   }
 };
