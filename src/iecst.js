@@ -202,10 +202,13 @@ export default function (hljs) {
 
   ];
 
-  const COMMENT_MODES = [
+  const COMMENT = {
+    className: 'comment',
+    variants: [
     hljs.C_LINE_COMMENT_MODE,
-    hljs.COMMENT(/\(\*/, /\*\)/)
-  ];
+    { begin: '\\(\\*', end: '\\*\\)', contains: ['self'] },
+    ]
+  };
 
   const DIRECTIVE = {
     className: 'meta',
@@ -249,10 +252,11 @@ export default function (hljs) {
       literal: LITERALS.join(" "),
       built_in: BUILT_IN.join(" "),
     },
-    contains: COMMENT_MODES.concat([
+    contains: [
+      COMMENT,
       STRING,
       DIRECTIVE,
       hljs.NUMBER_MODE
-    ])
+    ]
   }
 };
