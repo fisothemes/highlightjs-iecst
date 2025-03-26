@@ -3,7 +3,7 @@ import { minify } from "terser";
 import iecst from "../src/iecst.js";
 
 // Register language using a standard ID
-const standalone = `hljs.registerLanguage("iec-st", ${iecst.toString()});`;
+const standalone = `hljs.registerLanguage("iecst", ${iecst.toString()});`;
 
 // Read core highlight.js (pre-downloaded for v10 compatibility)
 const core = readFileSync("tools/highlight.js", "utf8");
@@ -32,7 +32,7 @@ async function build() {
 
   try {
     writeFileSync("example/mdbook/theme/highlight.js", minifiedBundled.code, "utf8");
-    console.log("✅ Copied: docs/book/theme/highlight.js");
+    console.log("✅ Copied: example/mdbook/theme/highlight.js");
   } catch (error) {
     console.error("⚠️ Failed to copy highlight.js to example/mdbook/theme");
   }
