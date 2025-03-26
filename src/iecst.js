@@ -242,6 +242,48 @@ export default function (hljs) {
     "+", "-", "*", "/", "^", ">", "<", "=", ":=", ":", ";", ",", ".", "(", ")", "[", "]", "{", "}", "$",
   ];
 
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      {
+        begin: '\\b\\d+(_\\d+)*\\b',
+        relevance: 10
+      },
+      { 
+        begin: '\\b(2#|8#|16#)[0-9a-fA-F]+(_[0-9a-fA-F]+)*\\b',
+        relevance: 20 
+      },
+      hljs.NUMBER_MODE
+    ]
+  };
+
+  const TYPED_LITERALS = {
+    className: 'literal',
+    begin: '\\b[A-Z][A-Z0-9_]*#'
+  };
+
+  const TIME_LITERALS = {
+    className: 'number',
+    variants: [
+      { 
+        begin: '\\b(T|TIME|LT|LTIME)#[-+]?\\d+(\\.\\d+)?([dhmsnuDHMSNU][smuSMU]?)*\\b',
+        relevance: 20
+      },
+      { 
+        begin: '\\b(D|DATE|LD|LDATE)#\\d{4}-\\d{1,2}-\\d{1,2}\\b',
+        relevance: 20
+      },
+      { 
+        begin: '\\b(TOD|TIME_OF_DAY|LTOD|LTIME_OF_DAY)#\\d{1,2}:\\d{1,2}:\\d{1,2}(\\.\\d+)?\\b',
+        relevance: 20
+      },
+      { 
+        begin: '\\b(DT|DATE_AND_TIME|LDT|LDATE_AND_TIME)#\\d{4}-\\d{1,2}-\\d{1,2}-\\d{1,2}:\\d{1,2}:\\d{1,2}(\\.\\d+)?\\b',
+        relevance: 20
+      }
+    ]
+  };
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
@@ -256,7 +298,9 @@ export default function (hljs) {
       COMMENT,
       STRING,
       DIRECTIVE,
-      hljs.NUMBER_MODE
+      NUMBER,
+      TIME_LITERALS,
+      TYPED_LITERALS
     ]
   }
 };

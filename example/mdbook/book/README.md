@@ -104,3 +104,31 @@ fAverageSpeed := F_CalculateAverageSpeed(arSpeeds);
 
 END_PROGRAM
 ```
+
+### Working with Integer Literals
+```iecst
+VAR
+    nDecimal : LINT := 18_000_000;
+    nBinary  : LINT := 2#10010;
+    nOctal   : LINT := 8#22;
+    nHex     : LINT := 16#12;
+    nCount   : LINT := INT#44;
+END_VAR
+```
+
+### Working with Real Literals
+```iecst
+VAR CONSTANT
+    fELEMENTRY_CHARGE : LREAL := 1.602E-19;
+END_VAR
+```
+
+### Working with Duration Literals
+```iecst
+VAR CONSTANT
+    tSystem32Tick   : TIME  := T#22D4H;
+    dCurrentDay     : DATE  := D#2025-03-25; 
+    todCurrentTime  : TOD   := TOD#22:02:44;
+    dtTimestamp     : DT    := DT#2025-03-25-22:02:44;
+END_VAR
+```
