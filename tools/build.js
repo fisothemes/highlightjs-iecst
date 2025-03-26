@@ -3,7 +3,7 @@ import { minify } from "terser";
 import iecst from "../src/iecst.js";
 
 // Register language using a standard ID
-const standalone = `hljs.registerLanguage("iec-st", ${iecst.toString()});`;
+const standalone = `hljs.registerLanguage("iecst", ${iecst.toString()});`;
 
 // Read core highlight.js (pre-downloaded for v10 compatibility)
 const core = readFileSync("tools/highlight.js", "utf8");
