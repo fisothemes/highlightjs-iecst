@@ -290,7 +290,6 @@ export default function (hljs) {
   const REFERENCE_TYPE = {
     className: 'type',
     begin: /\bREFERENCE\s+TO\b/i,
-    // Prevent nested reference types by specifying simple types or identifiers
     end: /\b((?:(?!REFERENCE\s+TO)\w+))\b/i,
     returnEnd: true
   };
