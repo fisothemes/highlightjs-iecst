@@ -287,6 +287,14 @@ export default function (hljs) {
     end: /\b\w+\b/i
   };
 
+  const REFERENCE_TYPE = {
+    className: 'type',
+    begin: /\bREFERENCE\s+TO\b/i,
+    // Prevent nested reference types by specifying simple types or identifiers
+    end: /\b((?:(?!REFERENCE\s+TO)\w+))\b/i,
+    returnEnd: true
+  };
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
@@ -303,7 +311,8 @@ export default function (hljs) {
       DIRECTIVE,
       TYPED_LITERALS,
       NUMBER,
-      POINTER_TYPE
+      POINTER_TYPE,
+      REFERENCE_TYPE
     ]
   }
 };
