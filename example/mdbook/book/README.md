@@ -178,7 +178,7 @@ END_VAR
 
 ```
 
-### Workking with Pointers
+### Working with Pointers
 ```iecst
 VAR
     nValue : INT := 42;
@@ -190,4 +190,18 @@ pValue := ADR(nValue);
 
 // Dereference pValue to update nValue
 nValue := pValue^ + 1;
+```
+
+### Working with References
+```iecst
+VAR
+    nOriginal   : INT := 100;
+    nRef        : REFERENCE TO INT;
+END_VAR
+
+// Assign the reference to nOriginal
+nRef REF= nOriginal;
+
+// Modify nOriginal via the reference
+nRef := nRef + 10;
 ```
