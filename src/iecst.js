@@ -294,6 +294,20 @@ export default function (hljs) {
     returnEnd: true
   };
 
+  const ARRAY_TYPE = {
+    className: 'type',
+    begin: /\bARRAY\s*\[/,
+    end: /\]\s*OF\b/i,
+    returnEnd: true,
+    contains: [
+      COMMENT,
+      {
+        className: 'number',
+        begin: /([a-zA-Z_]\w*|\d+|\*)\s*\.\.\s*([a-zA-Z_]\w*|\d+)/
+      }
+    ]
+  };
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
@@ -311,7 +325,8 @@ export default function (hljs) {
       TYPED_LITERALS,
       NUMBER,
       POINTER_TYPE,
-      REFERENCE_TYPE
+      REFERENCE_TYPE,
+      ARRAY_TYPE
     ]
   }
 };

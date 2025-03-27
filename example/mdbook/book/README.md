@@ -205,3 +205,10 @@ nRef REF= nOriginal;
 // Modify nOriginal via the reference
 nRef := nRef + 10;
 ```
+
+### Working with Arrays
+```iecst
+VAR
+    arValues : ARRAY[0..9] OF INT;
+END_VAR
+```
