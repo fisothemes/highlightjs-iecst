@@ -52,10 +52,6 @@ export default function (hljs) {
     "CONSTANT",
     "EXTENDS",
     "IMPLEMENTS",
-    "REFERENCE",
-    "TO",
-    "POINTER",
-    "ARRAY",
     "OF",
     "IF",
     "THEN",
@@ -284,6 +280,13 @@ export default function (hljs) {
     ]
   }
 
+  const POINTER_TYPE = {
+    className: 'type',
+    begin: /\bPOINTER\s+TO\b/i,
+    contains: ['self'],
+    end: /\b\w+\b/i
+  };
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
@@ -299,8 +302,8 @@ export default function (hljs) {
       STRING,
       DIRECTIVE,
       TYPED_LITERALS,
-      NUMBER
-
+      NUMBER,
+      POINTER_TYPE
     ]
   }
 };
