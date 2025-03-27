@@ -86,52 +86,49 @@ export default function (hljs) {
     "XORN",
     "NOT",
     "R",
-    "S"
+    "S",
+    "THIS",
+    "SUPER",
+    "__SYSTEM"
   ];
 
   const TYPES = [
-    "INT",
-    "DINT",
-    "REAL",
-    "LREAL",
     "BOOL",
     "BIT",
-    "STRING",
-    "ANY",
-    "ANY_BIT",
-    "ANY_DATE",
-    "ANY_NUM",
-    "ANY_REAL",
-    "ANY_INT",
-    "ANY_STRING",
-    "TIME",
-    "DATE",
-    "LTIME",
-    "DT",
-    "DATE_AND_TIME",
-    "DATE",
-    "TIME_OF_DAY",
-    "TOD",
-    "BYTE",
-    "WORD",
-    "DWORD",
-    "LWORD",
     "SINT",
+    "INT",
+    "DINT",
+    "LINT",
     "USINT",
     "UINT",
     "UDINT",
     "ULINT",
     "__XINT",
     "__UXINT",
+    "REAL",
+    "LREAL",
+    "TIME",
+    "LTIME",
+    "DATE",
+    "DATE_AND_TIME",
+    "DT",
+    "TIME_OF_DAY",
+    "TOD",
+    "STRING",
     "WSTRING",
-    "__SYSTEM",
+    "ANY_STRING",
+    "BYTE",
+    "WORD",
+    "DWORD",
+    "LWORD",
+    "ANY",
+    "ANY_BIT",
+    "ANY_DATE",
+    "ANY_INT",
+    "ANY_NUM",
+    "ANY_REAL",
     "%I*",
     "%Q*"
-  ];
-
-  const LITERALS = [
-    "TRUE",
-    "FALSE"
   ];
 
   const BUILT_IN = [
@@ -187,8 +184,6 @@ export default function (hljs) {
     "XSIZEOF",
     "ADR",
     "ADRINST",
-    "THIS",
-    "SUPER",
     "__NEW",
     "__DELETE",
     "__ISVALIDREF",
@@ -198,15 +193,14 @@ export default function (hljs) {
     "__POUNAME",
     "__POSITION",
     "UPPER_BOUND",
-    "LOWER_BOUND",
-
+    "LOWER_BOUND"
   ];
 
   const COMMENT = {
     className: 'comment',
     variants: [
-    hljs.C_LINE_COMMENT_MODE,
-    { begin: '\\(\\*', end: '\\*\\)', contains: ['self'] },
+      hljs.C_LINE_COMMENT_MODE,
+      { begin: '\\(\\*', end: '\\*\\)', contains: ['self'] },
     ]
   };
 
@@ -242,21 +236,71 @@ export default function (hljs) {
     "+", "-", "*", "/", "^", ">", "<", "=", ":=", ":", ";", ",", ".", "(", ")", "[", "]", "{", "}", "$",
   ];
 
+  const TYPED_LITERALS = {
+    className: 'literal',
+    variants: [
+      {
+        begin: '\\b(2|D?L?WORD#2)#[01]+(_[01]+)*\\b',
+      },
+      {
+        begin: '\\b(BOOL|BIT)#[0-9]+(_[0-9]+)*\\b',
+      },
+      {
+        begin: '\\b(8|(D|L)?WORD#8)#[0-9]+(_[0-9]+)*\\b',
+      },
+      {
+        begin: '\\b(16|(D|L)?WORD#16)#[0-9A-F]+(_[0-9A-F]+)*\\b',
+      },
+      {
+        begin: '\\b((S|D|L|US|U|UD|UL)?INT|(D|L)?WORD)#[0-9]+(_[0-9A-F]+)*\\b',
+      },
+      {
+        begin: '\\bL?REAL#[0-9]+(?:_[0-9]+)*(?:\\.[0-9]+(?:_[0-9]+)*)?(?:[eE][-+]?[0-9]+(?:_[0-9]+)*)?\\b',
+      },
+      {
+        begin: '\\b(T|TIME)#(\\d+d)?(\\d+h)?(\\d+m)?(\\d+s)?(\\d+ms)?(\\d+us)?\\b',
+      },
+      {
+        begin: '\\b(LT|LTIME)#(\\d+d)?(\\d+h)?(\\d+m)?(\\d+s)?(\\d+ms)?(\\d+us)?(\\d+ns)?\\b',
+      },
+      {
+        begin: '\\b(L?D|L?DATE)#\\d{4}-\\d{1,2}-\\d{1,2}\\b',
+      },
+      {
+        begin: '\\b(L?TOD|L?TIME_OF_DAY)#\\d{1,2}:\\d{1,2}:\\d{1,2}(\\.\\d+)?\\b',
+      },
+      {
+        begin: '\\b(L?DT|L?DATE_AND_TIME)#\\d{4}-\\d{1,2}-\\d{1,2}-\\d{1,2}:\\d{1,2}:\\d{1,2}(\\.\\d+)?\\b',
+      }
+    ]
+  };
+
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      {
+        begin: '\\b[0-9]+(?:_[0-9]+)*(?:\\.[0-9]+(?:_[0-9]+)*)?(?:[eE][-+]?[0-9]+(?:_[0-9]+)*)?\\b'
+      }
+    ]
+  }
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
     case_insensitive: true,
     keywords: {
       keyword: KEYWORDS.join(" "),
+      literal: "TRUE FALSE",
       type: TYPES.join(" "),
-      literal: LITERALS.join(" "),
       built_in: BUILT_IN.join(" "),
     },
     contains: [
       COMMENT,
       STRING,
       DIRECTIVE,
-      hljs.NUMBER_MODE
+      TYPED_LITERALS,
+      NUMBER
+
     ]
   }
 };
