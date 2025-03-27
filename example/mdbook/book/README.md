@@ -177,3 +177,17 @@ VAR CONSTANT
 END_VAR
 
 ```
+
+### Workking with Pointers
+```iecst
+VAR
+    nValue : INT := 42;
+    pValue : POINTER TO INT;
+END_VAR
+
+// Assign the address of nValue to pValue
+pValue := ADR(nValue);
+
+// Dereference pValue to update nValue
+nValue := pValue^ + 1;
+```
