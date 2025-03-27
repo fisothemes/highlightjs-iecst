@@ -246,13 +246,13 @@ export default function (hljs) {
         begin: '\\b(BOOL|BIT)#[0-9]+(_[0-9]+)*\\b',
       },
       {
-        begin: '\\b(8|D?L?WORD#8)#[0-9]+(_[0-9]+)*\\b',
+        begin: '\\b(8|(D|L)?WORD#8)#[0-9]+(_[0-9]+)*\\b',
       },
       {
-        begin: '\\b(16|D?L?WORD#16)#[0-9A-F]+(_[0-9A-F]+)*\\b',
+        begin: '\\b(16|(D|L)?WORD#16)#[0-9A-F]+(_[0-9A-F]+)*\\b',
       },
       {
-        begin: '\\b(S?D?L?US?U?UD?UL?INT|INT|D?L?WORD)#[0-9]+\\b',
+        begin: '\\b((S|D|L|US|U|UD|UL)?INT|(D|L)?WORD)#[0-9]+(_[0-9A-F]+)*\\b',
       },
       {
         begin: '\\bL?REAL#[0-9]+(?:_[0-9]+)*(?:\\.[0-9]+(?:_[0-9]+)*)?(?:[eE][-+]?[0-9]+(?:_[0-9]+)*)?\\b',
