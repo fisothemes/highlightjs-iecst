@@ -298,12 +298,12 @@ export default function (hljs) {
     className: 'type',
     begin: /\bARRAY\s*\[/,
     end: /\]\s*OF\b/i,
-    returnEnd: true,
     contains: [
       COMMENT,
       {
         className: 'number',
-        begin: /([a-zA-Z_]\w*|\d+|\*)\s*\.\.\s*([a-zA-Z_]\w*|\d+)/
+        begin: /([a-zA-Z_]\w*|\d+|\*)\s*\.\.\s*([a-zA-Z_]\w*|\d+)/,
+        relevance: 0
       }
     ]
   };
