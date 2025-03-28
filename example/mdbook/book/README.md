@@ -177,3 +177,69 @@ VAR CONSTANT
 END_VAR
 
 ```
+
+### Working with Pointers
+```iecst
+VAR
+    nValue : INT := 42;
+    pValue : POINTER TO INT;
+END_VAR
+
+// Assign the address of nValue to pValue
+pValue := ADR(nValue);
+
+// Dereference pValue to update nValue
+nValue := pValue^ + 1;
+```
+
+### Working with References
+```iecst
+VAR
+    nOriginal   : INT := 100;
+    nRef        : REFERENCE TO INT;
+END_VAR
+
+// Assign the reference to nOriginal
+nRef REF= nOriginal;
+
+// Modify nOriginal via the reference
+nRef := nRef + 10;
+```
+
+### Working with Arrays
+
+#### **1. Basic Array Declarations**
+
+```iecst
+VAR
+    // One-dimensional array of INTs
+    arPoints : ARRAY[0..9] OF INT := [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+    ];
+    // Two-dimensional array of LREAL
+    arMatrixStyleA : ARRAY[1..3, 0..2] OF LREAL := [
+        10, 11, 12, 
+        20, 21, 22, 
+        30, 31, 32
+    ];
+    // Two-dimensional array of LREAL using a nested array syntax
+    arMatrixStyleB : ARRAY[1..2] OF ARRAY[1..3] OF LREAL := [
+        [11, 12, 13],
+        [21, 22, 23] 
+    ];
+END_VAR
+```
+
+#### **2. Variable Length Array**
+
+```iecst
+// Function to transpose a matrix.
+// The input parameter 'arMatrix' is declared as an open (variable length) 2D array of LREAL,
+// which means it can accept matrices of any dimensions.
+FUNCTION F_Transpose : INT
+VAR_INPUT
+    arMatrix : ARRAY[*, *] OF LREAL;
+END_VAR
+(* Implementation... *)
+END_FUNCTION
+```
