@@ -108,3 +108,73 @@ git checkout master
 git pull upstream master
 git checkout -b hotfix/brief-description
 ```
+
+## Making Changes
+
+### Coding Standards
+
+Ensure your code adheres to our [coding standards](). Consistency helps maintain code quality and readability.
+
+### Commit Messages
+
+Write clear and descriptive commit messages:
+
+- **Structure**: Separate the subject from the body with a blank line.
+- **Subject Line**:
+  - Limit to 50 characters.
+  - Capitalize the first letter.
+  - Use the imperative mood (e.g., "Add feature" not "Added feature").
+- **Body**:
+  - Wrap at 72 characters.
+  - Explain the *why*, not the *what*.
+
+For detailed guidance, refer to [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+
+## Keeping Your Fork Updated
+
+Regularly sync your fork with the upstream repository:
+
+```bash
+git checkout develop
+git fetch upstream
+git merge upstream/develop
+git push origin develop
+```
+
+For `master`:
+
+```bash
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push origin master
+```
+
+## Submitting Your Changes
+
+### Pull Requests
+
+Once your changes are ready:
+
+1. Push your branch to your fork:
+
+   ```bash
+   git push origin branch-name
+   ```
+
+2. Navigate to the original repository on GitHub.
+
+3. Click **"Compare & pull request"**.
+
+4. Provide a clear title and description.
+
+5. Submit the pull request to the `develop` branch.
+
+
+## Review Process
+
+Your pull request will be reviewed and suggests for changes maybe made. Engage in the discussion and update your code as needed. Once approved, your changes will be merged.
+
+## Attribution
+
+This guide is based on best practices from various open-source projects, including the [CONTRIBUTING.md Example & Template](https://contributing.md/example/).
