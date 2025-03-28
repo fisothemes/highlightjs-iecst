@@ -52,10 +52,6 @@ export default function (hljs) {
     "CONSTANT",
     "EXTENDS",
     "IMPLEMENTS",
-    "REFERENCE",
-    "TO",
-    "POINTER",
-    "ARRAY",
     "OF",
     "IF",
     "THEN",
@@ -284,6 +280,34 @@ export default function (hljs) {
     ]
   }
 
+  const POINTER_TYPE = {
+    className: 'type',
+    begin: /\bPOINTER\s+TO\b/i,
+    contains: ['self'],
+    end: /\b\w+\b/i
+  };
+
+  const REFERENCE_TYPE = {
+    className: 'type',
+    begin: /\bREFERENCE\s+TO\b/i,
+    end: /\b((?:(?!REFERENCE\s+TO)\w+))\b/i,
+    returnEnd: true
+  };
+
+  const ARRAY_TYPE = {
+    className: 'type',
+    begin: /\bARRAY\s*\[/,
+    end: /\]\s*OF\b/i,
+    contains: [
+      COMMENT,
+      {
+        className: 'number',
+        begin: /([a-zA-Z_]\w*|\d+|\*)\s*\.\.\s*([a-zA-Z_]\w*|\d+)/,
+        relevance: 0
+      }
+    ]
+  };
+
   return {
     name: 'IEC 61131-3 Structured Text',
     aliases: ['iecst', "iec-st", "iec61131"],
@@ -299,8 +323,10 @@ export default function (hljs) {
       STRING,
       DIRECTIVE,
       TYPED_LITERALS,
-      NUMBER
-
+      NUMBER,
+      POINTER_TYPE,
+      REFERENCE_TYPE,
+      ARRAY_TYPE
     ]
   }
 };
