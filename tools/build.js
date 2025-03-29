@@ -39,9 +39,9 @@ async function build() {
 
   try {
     writeFileSync("example/mdbook/theme/highlight.js", minifiedBundled.code, "utf8");
-    console.log("✅ Copied: example/mdbook/theme/highlight.js");
+    console.log("✅ Built: example/mdbook/theme/highlight.js");
   } catch (error) {
-    console.error("⚠️ Failed to copy highlight.js to example/mdbook/theme");
+    console.error("⚠️ Failed to build highlight.js to example/mdbook/theme");
   }
 }
 
