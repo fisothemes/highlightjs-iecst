@@ -27,6 +27,13 @@ async function build() {
   writeFileSync("dist/iecst.min.js", minifiedStandalone.code, "utf8");
   console.log("✅ Built: dist/iecst.min.js");
 
+  try {
+    writeFileSync("example/browser/iecst.min.js", minifiedStandalone.code, "utf8");
+    console.log("✅ Built: example/browser/iecst.min.js");
+  } catch (error) {
+    console.error("⚠️ Failed to build highlight.js to example/browser");
+  }
+
   writeFileSync("dist/highlight.min.js", minifiedBundled.code, "utf8");
   console.log("✅ Built: dist/highlight.min.js");
 
