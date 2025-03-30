@@ -27,14 +27,21 @@ async function build() {
   writeFileSync("dist/iecst.min.js", minifiedStandalone.code, "utf8");
   console.log("✅ Built: dist/iecst.min.js");
 
+  try {
+    writeFileSync("example/browser/iecst.min.js", minifiedStandalone.code, "utf8");
+    console.log("✅ Built: example/browser/iecst.min.js");
+  } catch (error) {
+    console.error("⚠️ Failed to build highlight.js to example/browser");
+  }
+
   writeFileSync("dist/highlight.min.js", minifiedBundled.code, "utf8");
   console.log("✅ Built: dist/highlight.min.js");
 
   try {
     writeFileSync("example/mdbook/theme/highlight.js", minifiedBundled.code, "utf8");
-    console.log("✅ Copied: example/mdbook/theme/highlight.js");
+    console.log("✅ Built: example/mdbook/theme/highlight.js");
   } catch (error) {
-    console.error("⚠️ Failed to copy highlight.js to example/mdbook/theme");
+    console.error("⚠️ Failed to build highlight.js to example/mdbook/theme");
   }
 }
 
